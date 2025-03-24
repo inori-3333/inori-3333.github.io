@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #fff;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --bg-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-section {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            padding: 2rem;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+        }
+
+        .self-intro {
+            background: linear-gradient(135deg, var(--bg-color), var(--primary-color));
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-content {
+            flex: 1;
+        }
+
+        .intro-content h2 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .self-intro {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .skills {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">我的网站</a>
+            <div class="nav-links">
+                <a href="#blog">个人博客</a>
+                <a href="#repos">我的仓库</a>
+                <a href="#contact">联系我</a>
+                <button class="theme-toggle" onclick="toggleTheme()">昼夜模式</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Hello , here is inori333 !</h1>
+            <p>欢迎访问我的Github Pages</p>
+        </section>
+
+        <section class="self-intro">
+            <img src="https://via.placeholder.com/150" alt="个人头像" class="avatar">
+            <div class="intro-content">
+                <h2>关于我</h2>
+                <p class="bio">
+                    > "二向无常，遇而无往"
+                    
+                    <p>Inori333 , from SDU. Majored in Computer Science and Technology.</p>
+                    <h3>About me</h3>
+                    <ul>
+                        <li>2nd place of the Large Language Model for Hardware Design Contest of ICCAD 2024</li>
+                        <li>1st Price of the East China Regional Competition of CSCC-OS Design Contest</li>
+                        <li>SteamDB Donator(But why put this here? QAQ:I don't know!)</li>
+                    </ul>
+                    <h3>Projects</h3>
+                    <ul>
+                        <li>Contributor to the <strong>Astrbot</strong>, a multi-platform LLM chatbot and development framework</li>
+                        <li>Developing plugins for <strong>Astrbot</strong>, like astrbot_plugin_steamshot</li>
+                        <li>Co-author of a large-scale Verilog dataset for machine learning and neural network training</li>
+                        <li>Co-author of a benchmark for evaluating the performance of large language models in generating Verilog code and a maintainer of the test dataset</li>
+                    </ul>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">AI/ML</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>最新博客</h2>
+                <p>等待填充</p>
+            </div>
+            <div class="card">
+                <h2>热门仓库</h2>
+                <p>等待填充</p>
+            </div>
+            <div class="card">
+                <h2>联系方式</h2>
+                <p>inori333@163.com</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html> 
